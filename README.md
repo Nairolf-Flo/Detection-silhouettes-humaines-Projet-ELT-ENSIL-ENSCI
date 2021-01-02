@@ -3,18 +3,19 @@ Grâce à de l’analyse d’image, cet outil pourra déclencher des services va
 
 ![Profile views](https://gpvc.arturio.dev/Detection-silhouettes-humaines-Projet-ELT-ENSIL-ENSCI)
 
+<img src="https://github.com/Nairolf-Flo/Detection-silhouettes-humaines-Projet-ELT-ENSIL-ENSCI/blob/main/dft_sf_feu.gif" alt="Banner">
  
-#Liens utiles
+## Liens utiles
 
 - Construction du réseau
 		https://keras.io/getting_started/intro_to_keras_for_engineers/
 		
 - Apprentissage :
 	- compile() pour spécifier l'optimizer et la fonction losss
-		https://keras.io/api/optimizers/ // Sélectionne la façon dont les poids sont modifiés
-		https://keras.io/api/losses/     // Sélectionne la façon dont le loss est calculé dans le model
-		https://keras.io/api/metrics/    // Fonctions utilisées pour juger les performance d'un réseau c'est pour le contrôle des performances
+		- https://keras.io/api/optimizers/  Sélectionne la façon dont les poids sont modifiés
+		- https://keras.io/api/losses/      Sélectionne la façon dont le loss est calculé dans le model
+		- https://keras.io/api/metrics/     Fonctions utilisées pour évaluer les performance d'un réseau
 		
 	
 	- fit() pour choisir les données d'entraînement, les labels associés, le batch_size et le nombre d'epochs
-		https://keras.io/getting_started/intro_to_keras_for_engineers/
+		- https://keras.io/getting_started/intro_to_keras_for_engineers/
