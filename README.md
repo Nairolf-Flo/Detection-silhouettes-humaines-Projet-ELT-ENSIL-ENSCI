@@ -4,6 +4,7 @@ Grâce à de l’analyse d’image, cet outil pourra déclencher des services va
 <center>
 <img src="https://github.com/Nairolf-Flo/Detection-silhouettes-humaines-Projet-ELT-ENSIL-ENSCI/blob/main/dft_sf_feu.gif" alt="Banner">
 </center>
+Rien à voir mais c'est beau ! 😀
 
 ## Liens utiles
 
