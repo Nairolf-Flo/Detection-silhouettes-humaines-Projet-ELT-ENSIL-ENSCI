@@ -12,7 +12,7 @@ repertoireCoco=repertoire + "\personalCoco"
 # Création des dataset
 # https://keras.io/api/preprocessing/image/#image_dataset_from_directory-function
 train_dataset=keras.preprocessing.image_dataset_from_directory(
-    repertoireCoco,      # Répertoire des images # !
+    repertoireCoco + "train",      # Répertoire des images # !
     labels="inferred",   # Label déduit du nom du répertoire des images
     label_mode="binary", # 'binary' means that the labels (there can be only 2) are encoded as float32 scalars with values 0 or 1 (e.g. for binary_crossentropy)
     class_names=None,    # None donc l'ordre alphanumérique est utilisé pour ordonner les classes (mettre la liste des sous répertoires pour choisir l'ordre)
