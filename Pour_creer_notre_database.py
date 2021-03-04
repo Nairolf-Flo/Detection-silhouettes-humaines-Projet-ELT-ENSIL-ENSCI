@@ -17,6 +17,9 @@ categoriesAnimals = ['cat','dog','sheep','cow','horse']
 cattest = ['dog']
 
 cate_selectionne = cattest # Choisir ici la catégorie parmis categoriesVehicules / categoriesPerson / categoriesAnimals
+doss_depart=os.path.join(dataDir, 'images/val2017')                  # Choisir ici la source des images
+doss_destination=os.path.join(dataDir, 'personalCOCOtest/vehicule/') # Choisir ici le dossier de destination des images
+
 
 images = []
 touteslescatIds=coco.getCatIds(catNms=cate_selectionne)
@@ -33,8 +36,6 @@ print("Vérification des images")
 unique_images = []
 
 
-doss_destination=os.path.join(dataDir, 'personalCOCOtest/vehicule/') # Choisir ici le dossier de destination des images
-doss_depart=os.path.join(dataDir, 'images/val2017')                  # Choisir ici la source des images
 for im in images:
     annIds = coco.getAnnIds(imgIds=im['id'], iscrowd=None)
     anns = coco.loadAnns(ids=annIds)
