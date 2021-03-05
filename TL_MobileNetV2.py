@@ -12,7 +12,7 @@ repertoireCoco=repertoire + "\personalCoco"
 # Création des dataset
 # https://keras.io/api/preprocessing/image/#image_dataset_from_directory-function
 train_dataset=keras.preprocessing.image_dataset_from_directory(
-    repertoireCoco + "train",      # Répertoire des images # !
+    repertoireCoco + "\\train",      # Répertoire des images # !
     labels="inferred",   # Label déduit du nom du répertoire des images
     label_mode="binary", # 'binary' means that the labels (there can be only 2) are encoded as float32 scalars with values 0 or 1 (e.g. for binary_crossentropy)
     class_names=None,    # None donc l'ordre alphanumérique est utilisé pour ordonner les classes (mettre la liste des sous répertoires pour choisir l'ordre)
@@ -28,7 +28,7 @@ train_dataset=keras.preprocessing.image_dataset_from_directory(
 )
 
 val_dataset=keras.preprocessing.image_dataset_from_directory(
-    repertoireCoco + "val", # !
+    repertoireCoco + "\\val", # !
     labels="inferred",
     label_mode="binary",
     class_names=None,
@@ -67,8 +67,9 @@ base_model.trainable = False
 #-----------------------------------------------------------------------
 # Ajout du classifieur à la fin du model
 x = base_model(inputs, training=False)
-x = keras.layers.GlobalAveragePooling2D()(x) # calculates the average output of each feature map in the previous layer
-outputs = keras.layers.Dense(1,activation = "softmax")(x)
+#x = keras.layers.GlobalAveragePooling2D()(x) # calculates the average output of each feature map in the previous layer
+x = keras.layers.Dense(256, activation='relu')(x)
+outputs = keras.layers.Dense(2,activation = "softmax")(x)
 
 model = keras.Model(inputs=inputs, outputs=outputs)
 # model :
@@ -80,7 +81,7 @@ model = keras.Model(inputs=inputs, outputs=outputs)
 # Configuration du model pour l'entrainement
 model.compile(
     optimizer = keras.optimizers.Adam(),
-    loss = keras.losses.BinaryCrossentropy(from_logits=True), # Force le loss entre 0 et 1
+    loss = "BinaryCrossentropy", # Force le loss entre 0 et 1"""
     metrics=[keras.metrics.BinaryAccuracy()]                  # Proportion d'images correctement identifiées
     )
  
@@ -93,13 +94,13 @@ history = model.fit(
     )
     
 # Sauvegarder le modèle
-model_name='mobilenetv2_personalCoco'
-save_path=dataDir+'\saved_models\\'+ model_name
-model.save(save_path)              à décommenter pour sauvegarder le modèle (attention au nom)
+model_name='mobilenetv2_personalCocotest0'
+save_path=repertoire+'\saved_models\\'+ model_name
+model.save(save_path)              #à décommenter pour sauvegarder le modèle (attention au nom)
 
 # Rappeler le modèle :
-model_name='mobilenetv2_personalCoco'
-save_path=dataDir+'\saved_models\\'+ model_name
+model_name='mobilenetv2_personalCocotest0'
+save_path=repertoire+'\saved_models\\'+ model_name
 model = keras.models.load_model(save_path)
 
 # Tester le modèle sur les images de validation

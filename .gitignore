@@ -1,6 +1,7 @@
 annotations/
 images/
 saved_models/
-personalCOCO/
+personalCOCOtrain/
 .ipynb_checkpoints/
 personalCOCOval/
+personalCOCO/
