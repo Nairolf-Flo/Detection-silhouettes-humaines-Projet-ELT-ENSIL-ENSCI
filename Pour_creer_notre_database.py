@@ -24,8 +24,8 @@ os.mkdir(repertoire_Non_Humain_Val)
 
 dataDir=os.getcwd() # Chemin du dossier ou s'execute le script
 categories_Humain = ['person']
-categories_Non_Humain = ['car']
-#categories_Non_Humain = ['car','bus','cat','dog','sheep','cow','horse']
+#categories_Non_Humain = ['car']
+categories_Non_Humain = ['car','bus','train','truck','bicycle','cat','dog','sheep','cow','horse','bird']
 
 
 
