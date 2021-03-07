@@ -1,0 +1,116 @@
+python3: can't open file 'TL_MobileNetv2.py': [Errno 2] No such file or directory
+2021-03-07 10:52:34.664631: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2021-03-07 10:52:34.664674: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2021-03-07 10:52:37.049914: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-03-07 10:52:37.050112: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2021-03-07 10:52:37.050125: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2021-03-07 10:52:37.050143: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (Tomcat): /proc/driver/nvidia/version does not exist
+2021-03-07 10:52:37.050432: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-03-07 10:52:37.050551: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-03-07 10:52:40.184966: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:116] None of the MLIR optimization passes are enabled (registered 2)
+2021-03-07 10:52:40.197549: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 2095074999 Hz
+Found 59989 files belonging to 2 classes.
+Found 2520 files belonging to 2 classes.
+Epoch 1/50
+1875/1875 - 350s - loss: 0.4996 - accuracy: 0.7690
+Epoch 2/50
+1875/1875 - 345s - loss: 0.4585 - accuracy: 0.7949
+Epoch 3/50
+1875/1875 - 344s - loss: 0.4481 - accuracy: 0.7989
+Epoch 4/50
+1875/1875 - 340s - loss: 0.4504 - accuracy: 0.7988
+Epoch 5/50
+1875/1875 - 340s - loss: 0.4481 - accuracy: 0.7983
+Epoch 6/50
+1875/1875 - 350s - loss: 0.4490 - accuracy: 0.7997
+Epoch 7/50
+1875/1875 - 346s - loss: 0.4477 - accuracy: 0.8002
+Epoch 8/50
+1875/1875 - 344s - loss: 0.4463 - accuracy: 0.8007
+Epoch 9/50
+1875/1875 - 338s - loss: 0.4478 - accuracy: 0.8018
+Epoch 10/50
+1875/1875 - 332s - loss: 0.4461 - accuracy: 0.8012
+Epoch 11/50
+1875/1875 - 345s - loss: 0.4451 - accuracy: 0.8028
+Epoch 12/50
+1875/1875 - 342s - loss: 0.4467 - accuracy: 0.8002
+Epoch 13/50
+1875/1875 - 339s - loss: 0.4511 - accuracy: 0.7987
+Epoch 14/50
+1875/1875 - 338s - loss: 0.4490 - accuracy: 0.8005
+Epoch 15/50
+1875/1875 - 333s - loss: 0.4466 - accuracy: 0.8019
+Epoch 16/50
+1875/1875 - 333s - loss: 0.4459 - accuracy: 0.8006
+Epoch 17/50
+1875/1875 - 335s - loss: 0.4460 - accuracy: 0.8008
+Epoch 18/50
+1875/1875 - 332s - loss: 0.4425 - accuracy: 0.8028
+Epoch 19/50
+1875/1875 - 340s - loss: 0.4487 - accuracy: 0.8011
+Epoch 20/50
+1875/1875 - 346s - loss: 0.4475 - accuracy: 0.8001
+Epoch 21/50
+1875/1875 - 351s - loss: 0.4425 - accuracy: 0.8019
+Epoch 22/50
+1875/1875 - 353s - loss: 0.4463 - accuracy: 0.8007
+Epoch 23/50
+1875/1875 - 351s - loss: 0.4455 - accuracy: 0.8020
+Epoch 24/50
+1875/1875 - 352s - loss: 0.4461 - accuracy: 0.8012
+Epoch 25/50
+1875/1875 - 349s - loss: 0.4431 - accuracy: 0.8018
+Epoch 26/50
+1875/1875 - 345s - loss: 0.4462 - accuracy: 0.8008
+Epoch 27/50
+1875/1875 - 343s - loss: 0.4486 - accuracy: 0.7996
+Epoch 28/50
+1875/1875 - 343s - loss: 0.4464 - accuracy: 0.8018
+Epoch 29/50
+1875/1875 - 344s - loss: 0.4461 - accuracy: 0.8007
+Epoch 30/50
+1875/1875 - 343s - loss: 0.4466 - accuracy: 0.8026
+Epoch 31/50
+1875/1875 - 344s - loss: 0.4433 - accuracy: 0.8013
+Epoch 32/50
+1875/1875 - 348s - loss: 0.4481 - accuracy: 0.8019
+Epoch 33/50
+1875/1875 - 350s - loss: 0.4439 - accuracy: 0.8034
+Epoch 34/50
+1875/1875 - 343s - loss: 0.4476 - accuracy: 0.8010
+Epoch 35/50
+1875/1875 - 340s - loss: 0.4437 - accuracy: 0.8030
+Epoch 36/50
+1875/1875 - 338s - loss: 0.4460 - accuracy: 0.8026
+Epoch 37/50
+1875/1875 - 342s - loss: 0.4467 - accuracy: 0.8008
+Epoch 38/50
+1875/1875 - 336s - loss: 0.4478 - accuracy: 0.8010
+Epoch 39/50
+1875/1875 - 335s - loss: 0.4476 - accuracy: 0.8001
+Epoch 40/50
+1875/1875 - 340s - loss: 0.4445 - accuracy: 0.8022
+Epoch 41/50
+1875/1875 - 335s - loss: 0.4521 - accuracy: 0.7989
+Epoch 42/50
+1875/1875 - 342s - loss: 0.4448 - accuracy: 0.8017
+Epoch 43/50
+1875/1875 - 344s - loss: 0.4464 - accuracy: 0.8011
+Epoch 44/50
+1875/1875 - 350s - loss: 0.4440 - accuracy: 0.8021
+Epoch 45/50
+1875/1875 - 351s - loss: 0.4481 - accuracy: 0.8009
+Epoch 46/50
+1875/1875 - 348s - loss: 0.4439 - accuracy: 0.8023
+Epoch 47/50
+1875/1875 - 343s - loss: 0.4520 - accuracy: 0.7997
+Epoch 48/50
+1875/1875 - 334s - loss: 0.4409 - accuracy: 0.8028
+Epoch 49/50
+1875/1875 - 339s - loss: 0.4443 - accuracy: 0.8027
+Epoch 50/50
+1875/1875 - 348s - loss: 0.4481 - accuracy: 0.8010
+2021-03-07 15:38:21.407674: W tensorflow/python/util/util.cc:348] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+79/79 - 16s - loss: 0.4596 - accuracy: 0.8008
