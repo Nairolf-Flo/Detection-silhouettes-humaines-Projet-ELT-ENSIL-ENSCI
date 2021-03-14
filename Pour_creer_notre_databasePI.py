@@ -31,7 +31,6 @@ categories_Non_Humain = ['car','bus','train','truck','bicycle','cat','dog','shee
 # Fonction pour extraires les images intéressantes de coco
 def exctraction(cate_selectionne,doss_depart,doss_destination):
     images = []
-    touteslescatIds=coco.getCatIds(catNms=cate_selectionne)
     for className in cate_selectionne:   # Il est peut être possible de se passer de la boucle
         catIds = coco.getCatIds(catNms=className) # Récupération des identifiants des catégories à sélectionner
         imgIds = coco.getImgIds(catIds=catIds)    # Récupération des images avec les catégories d'objets précisées
@@ -44,12 +43,18 @@ def exctraction(cate_selectionne,doss_depart,doss_destination):
     print("Vérification des images")
     unique_images = []
     
-    if cate_selectionne == ['person']:
+    if cate_selectionne != ['person']:
+        p=0
         for im in images:
             annIds = coco.getAnnIds(imgIds=im['id'], iscrowd=None)
             anns = coco.loadAnns(ids=annIds)
             
-            if im not in unique_images :
+            humain_is_present = 0
+            for ann in anns:
+                if ann['category_id'] == 1:
+                    humain_is_present=1
+            
+            if im not in unique_images and humain_is_present == 0 :
                 unique_images.append(im)
                 cheminImageSource = os.path.join(doss_depart, im['file_name'])
                 #shutil.copy(cheminImageSource,doss_destination) # Enregistre la photo en entier
@@ -58,7 +63,7 @@ def exctraction(cate_selectionne,doss_depart,doss_destination):
                 #print(doss_destination + im['file_name'])
     
 
-    elif cate_selectionne != ['person']:
+    elif cate_selectionne == ['person']:
         for im in images:
             annIds = coco.getAnnIds(imgIds=im['id'], iscrowd=None)
             anns = coco.loadAnns(ids=annIds)
