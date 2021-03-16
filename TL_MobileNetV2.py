@@ -79,20 +79,20 @@ model = keras.Model(inputs=inputs, outputs=outputs)
 #     ----------------------     ------------------------     -------
 #-----------------------------------------------------------------------
 
-# Configuration du model pour l'entrainement
-model.compile(
-    optimizer = keras.optimizers.Adam(),
-    loss = "BinaryCrossentropy", # Force le loss entre 0 et 1"""
-    metrics=[keras.metrics.BinaryAccuracy()]                  # Proportion d'images correctement identifiées
-    )
+# # Configuration du model pour l'entrainement
+# model.compile(
+#     optimizer = keras.optimizers.Adam(),
+#     loss = "BinaryCrossentropy", # Force le loss entre 0 et 1"""
+#     metrics=[keras.metrics.BinaryAccuracy()]                  # Proportion d'images correctement identifiées
+#     )
  
-# Entrainement du modèle
-history = model.fit(
-    train_dataset,
-    batch_size = batchSize, # par défaut 32
-    epochs=20,  # /!\
-    verbose = 2 # affiche des infos a la fin des epochs
-    )
+# # Entrainement du modèle
+# history = model.fit(
+#     train_dataset,
+#     batch_size = batchSize, # par défaut 32
+#     epochs=20,  # /!\
+#     verbose = 2 # affiche des infos a la fin des epochs
+#     )
     
 # Sauvegarder le modèle
 model_name='mobilenetv2_personalCocotest0'

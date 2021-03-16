@@ -7,10 +7,10 @@ target_size = 96
 batchSize = 32
 
 repertoire=os.getcwd() # Chemin du dossier ou s'execute le script
-repertoireCoco=repertoire + "/personalCoco"
+repertoireCoco=repertoire + "/personalCocoPI"
 
-# Création des dataset
-# https://keras.io/api/preprocessing/image/#image_dataset_from_directory-function
+Création des dataset
+https://keras.io/api/preprocessing/image/#image_dataset_from_directory-function
 train_dataset=keras.preprocessing.image_dataset_from_directory(
     repertoireCoco + "/train",      # Répertoire des images # !
     labels="inferred",   # Label déduit du nom du répertoire des images
@@ -44,63 +44,63 @@ val_dataset=keras.preprocessing.image_dataset_from_directory(
 )
 
 
-inputs = keras.Input(shape=(target_size, target_size, 3)) # !
-#inputs = keras.layers.Input(shape=(target_size, target_size ,3))
+# inputs = keras.Input(shape=(target_size, target_size, 3)) # !
+# #inputs = keras.layers.Input(shape=(target_size, target_size ,3))
 
-#----------------------------------------------------------------------
-# Import le MobileNetV2 entrainé sur imagenet
-base_model = tf.keras.applications.MobileNetV2(
-    input_shape=(target_size, target_size,3),
-    alpha=1.0,
-    include_top=False,
-    weights='imagenet',
-    input_tensor=inputs, # !
-    pooling='max'
-    )
+# #----------------------------------------------------------------------
+# # Import le MobileNetV2 entrainé sur imagenet
+# base_model = tf.keras.applications.MobileNetV2(
+#     input_shape=(target_size, target_size,3),
+#     alpha=1.0,
+#     include_top=False,
+#     weights='imagenet',
+#     input_tensor=inputs, # !
+#     pooling='max'
+#     )
 
-# Bloque la modification du base_model
-base_model.trainable = False 
-# base_model :
-#     ----------------------
-#    | MobileNetV2 sans Top | 
-#     ----------------------
-#-----------------------------------------------------------------------
-# Ajout du classifieur à la fin du model
-x = base_model(inputs, training=False)
-#x = keras.layers.GlobalAveragePooling2D()(base_model.output) # calculates the average output of each feature map in the previous layer
-#x = keras.layers.Dense(256, activation='relu')(x)
-#x = keras.layers.Dropout(.25)(x)
-outputs = keras.layers.Dense(2,activation='softmax')(x)
+# # Bloque la modification du base_model
+# base_model.trainable = False 
+# # base_model :
+# #     ----------------------
+# #    | MobileNetV2 sans Top | 
+# #     ----------------------
+# #-----------------------------------------------------------------------
+# # Ajout du classifieur à la fin du model
+# x = base_model(inputs, training=False)
+# #x = keras.layers.GlobalAveragePooling2D()(base_model.output) # calculates the average output of each feature map in the previous layer
+# #x = keras.layers.Dense(256, activation='relu')(x)
+# #x = keras.layers.Dropout(.25)(x)
+# outputs = keras.layers.Dense(2,activation='softmax')(x)
 
-model = keras.Model(inputs=inputs, outputs=outputs)
-# model :
-#     ----------------------     ------------------------     -------
-#    | MobileNetV2 sans Top |---| GlobalAveragePooling2D |---| Dense |
-#     ----------------------     ------------------------     -------
-#-----------------------------------------------------------------------
+# model = keras.Model(inputs=inputs, outputs=outputs)
+# # model :
+# #     ----------------------     ------------------------     -------
+# #    | MobileNetV2 sans Top |---| GlobalAveragePooling2D |---| Dense |
+# #     ----------------------     ------------------------     -------
+# #-----------------------------------------------------------------------
 
-# Configuration du model pour l'entrainement
-model.compile(
-    optimizer = keras.optimizers.Adam(),
-    loss = "categorical_crossentropy", # Force le loss entre 0 et 1"""
-    metrics=["accuracy"]                  # Proportion d'images correctement identifiées
-    )
+# # Configuration du model pour l'entrainement
+# model.compile(
+#     optimizer = keras.optimizers.Adam(),
+#     loss = "categorical_crossentropy", # Force le loss entre 0 et 1"""
+#     metrics=["accuracy"]                  # Proportion d'images correctement identifiées
+#     )
  
-# Entrainement du modèle
-history = model.fit(
-    train_dataset,
-    batch_size = batchSize, # par défaut 32
-    epochs=100,  # /!\
-    verbose = 2 # affiche des infos a la fin des epochs
-    )
+# # Entrainement du modèle
+# history = model.fit(
+#     train_dataset,
+#     batch_size = batchSize, # par défaut 32
+#     epochs=100,  # /!\
+#     verbose = 2 # affiche des infos a la fin des epochs
+#     )
     
-# Sauvegarder le modèle
-model_name='mobilenetv2_personalCocotest0'
-save_path=repertoire+'/saved_models/'+ model_name
-model.save(save_path)              #à décommenter pour sauvegarder le modèle (attention au nom)
+# # Sauvegarder le modèle
+# model_name='mobilenetv2_personalCocotest0'
+# save_path=repertoire+'/saved_models/'+ model_name
+# model.save(save_path)              #à décommenter pour sauvegarder le modèle (attention au nom)
 
 # Rappeler le modèle :
-model_name='mobilenetv2_personalCocotest0'
+model_name='mobilenetv2_personalCoco100epochs'
 save_path=repertoire+'/saved_models/'+ model_name
 model = keras.models.load_model(save_path)
 
