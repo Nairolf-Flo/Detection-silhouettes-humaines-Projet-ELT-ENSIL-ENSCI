@@ -2,9 +2,9 @@ import os
 import tensorflow as tf
 import pathlib
 dataDir = os.getcwd()
-converter = tf.lite.TFLiteConverter.from_saved_model(dataDir+"\\saved_models\\mobilenetv2_personalCoco100epochs")
+converter = tf.lite.TFLiteConverter.from_saved_model(dataDir+"\\saved_models\\mobilenetv2_personalCocoPI0")
 tflite_model = converter.convert()
-tflite_model_files = pathlib.Path("pretrainedmodel3.tflite")
+tflite_model_files = pathlib.Path("pretrainedmodel_PI0.tflite")
 tflite_model_files.write_bytes(tflite_model)
 
 # converter = tf.lite.TFLiteConverter.from_keras_model(model=model)

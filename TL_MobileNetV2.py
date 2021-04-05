@@ -7,14 +7,14 @@ target_size = 96
 batchSize = 32
 
 repertoire=os.getcwd() # Chemin du dossier ou s'execute le script
-repertoireCoco=repertoire + "\personalCoco"
+repertoireCoco=repertoire + "\personalCocoPI"
 
 # Création des dataset
 # https://keras.io/api/preprocessing/image/#image_dataset_from_directory-function
 train_dataset=keras.preprocessing.image_dataset_from_directory(
     repertoireCoco + "\\train",      # Répertoire des images # !
     labels="inferred",   # Label déduit du nom du répertoire des images
-    label_mode="binary", # 'binary' means that the labels (there can be only 2) are encoded as float32 scalars with values 0 or 1 (e.g. for binary_crossentropy)
+    label_mode="categorical", # 'binary' means that the labels (there can be only 2) are encoded as float32 scalars with values 0 or 1 (e.g. for binary_crossentropy)
     class_names=None,    # None donc l'ordre alphanumérique est utilisé pour ordonner les classes (mettre la liste des sous répertoires pour choisir l'ordre)
     color_mode="rgb",    # "grayscale", "rgb", "rgba" convertir les images si besoin
     batch_size=batchSize,       # Taille des batches, par défaut c'est 32
@@ -30,7 +30,7 @@ train_dataset=keras.preprocessing.image_dataset_from_directory(
 val_dataset=keras.preprocessing.image_dataset_from_directory(
     repertoireCoco + "\\val", # !
     labels="inferred",
-    label_mode="binary",
+    label_mode="categorical",
     class_names=None,
     color_mode="rgb",
     batch_size=batchSize,
@@ -68,9 +68,9 @@ base_model.trainable = False
 # Ajout du classifieur à la fin du model
 x = base_model(inputs, training=False)
 #x = keras.layers.GlobalAveragePooling2D()(base_model.output) # calculates the average output of each feature map in the previous layer
-#x = keras.layers.Dense(256, activation='relu')(x)
-#x = keras.layers.Dropout(.25)(x)
-outputs = keras.layers.Dense(1)(x)
+x = keras.layers.Dense(1280, activation='relu')(x)
+x = keras.layers.Dropout(.25)(x)
+outputs = keras.layers.Dense(2,activation='softmax')(x)
 
 model = keras.Model(inputs=inputs, outputs=outputs)
 # model :
@@ -79,28 +79,28 @@ model = keras.Model(inputs=inputs, outputs=outputs)
 #     ----------------------     ------------------------     -------
 #-----------------------------------------------------------------------
 
-# # Configuration du model pour l'entrainement
-# model.compile(
-#     optimizer = keras.optimizers.Adam(),
-#     loss = "BinaryCrossentropy", # Force le loss entre 0 et 1"""
-#     metrics=[keras.metrics.BinaryAccuracy()]                  # Proportion d'images correctement identifiées
-#     )
+# Configuration du model pour l'entrainement
+model.compile(
+    optimizer = keras.optimizers.Adam(),
+    loss = "categorical_crossentropy", # Force le loss entre 0 et 1"""
+    metrics=['accuracy']                  # Proportion d'images correctement identifiées
+    )
  
-# # Entrainement du modèle
-# history = model.fit(
-#     train_dataset,
-#     batch_size = batchSize, # par défaut 32
-#     epochs=20,  # /!\
-#     verbose = 2 # affiche des infos a la fin des epochs
-#     )
+# Entrainement du modèle
+history = model.fit(
+    train_dataset,
+    batch_size = batchSize, # par défaut 32
+    epochs=20,  # /!\
+    verbose = 2 # affiche des infos a la fin des epochs
+    )
     
 # Sauvegarder le modèle
-model_name='mobilenetv2_personalCocotest0'
+model_name='mobilenetv2_personalCocoPI0'
 save_path=repertoire+'\saved_models\\'+ model_name
 model.save(save_path)              #à décommenter pour sauvegarder le modèle (attention au nom)
 
 # Rappeler le modèle :
-model_name='mobilenetv2_personalCocotest0'
+model_name='mobilenetv2_personalCocoPI0'
 save_path=repertoire+'\saved_models\\'+ model_name
 model = keras.models.load_model(save_path)
 

@@ -83,19 +83,19 @@ def exctraction(cate_selectionne,doss_depart,doss_destination):
     # Remplir les répertoires avec les images
 for i in range(4):
     if i==0:
-        dataType = 'val2017'  # Dossier contenant les images
+        dataType = 'train2017'  # Dossier contenant les images
         annFile  = '{}/annotations/instances_{}.json'.format(dataDir,dataType)
         coco=COCO(annFile)     # initialize COCO api for instance annotations
         cate_selectionne = categories_Humain                         # Choisir ici la catégorie parmis categories_Humain / categories_Non_Humain
-        doss_depart      = os.path.join(dataDir, 'images/val2017') # Choisir ici la source des images
-        doss_destination = os.path.join(repertoire_Humain_Val, 'humain') # Choisir ici le dossier de destination des images
+        doss_depart      = os.path.join(dataDir, 'images/train2017') # Choisir ici la source des images
+        doss_destination = os.path.join(repertoire_Humain_Train, 'humain') # Choisir ici le dossier de destination des images
         exctraction(cate_selectionne,doss_depart,doss_destination)
     elif i==1:
-        dataType = 'val2017'  # Dossier contenant les images
+        dataType = 'train2017'  # Dossier contenant les images
         annFile  = '{}/annotations/instances_{}.json'.format(dataDir,dataType)
         coco=COCO(annFile)      # initialize COCO api for instance annotations
         cate_selectionne = categories_Non_Humain                     # Choisir ici la catégorie parmis categories_Humain / categories_Non_Humain
-        doss_depart      = os.path.join(dataDir, 'images/val2017') # Choisir ici la source des images
-        doss_destination = os.path.join(repertoire_Non_Humain_Val, 'nonhumain') # Choisir ici le dossier de destination des images
+        doss_depart      = os.path.join(dataDir, 'images/train2017') # Choisir ici la source des images
+        doss_destination = os.path.join(repertoire_Non_Humain_Train, 'nonhumain') # Choisir ici le dossier de destination des images
         exctraction(cate_selectionne,doss_depart,doss_destination)
  
