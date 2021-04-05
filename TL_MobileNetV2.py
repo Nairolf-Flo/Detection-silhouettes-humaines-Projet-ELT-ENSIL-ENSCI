@@ -68,8 +68,14 @@ base_model.trainable = False
 # Ajout du classifieur à la fin du model
 x = base_model(inputs, training=False)
 #x = keras.layers.GlobalAveragePooling2D()(base_model.output) # calculates the average output of each feature map in the previous layer
+<<<<<<< HEAD
 x = keras.layers.Dense(1280, activation='relu')(x)
 x = keras.layers.Dropout(.25)(x)
+=======
+#x = keras.layers.Dense(256, activation='relu')(x)
+#x = keras.layers.Dropout(.25)(x)
+#outputs = keras.layers.Dense(1)(x)
+>>>>>>> de5ce8da753429a76a5beca196a34f3d659cb183
 outputs = keras.layers.Dense(2,activation='softmax')(x)
 
 model = keras.Model(inputs=inputs, outputs=outputs)

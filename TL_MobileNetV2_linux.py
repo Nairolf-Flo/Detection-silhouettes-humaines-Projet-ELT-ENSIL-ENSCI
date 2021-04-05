@@ -9,8 +9,13 @@ batchSize = 32
 repertoire=os.getcwd() # Chemin du dossier ou s'execute le script
 repertoireCoco=repertoire + "/personalCocoPI"
 
+<<<<<<< HEAD
 #Création des dataset
 #https://keras.io/api/preprocessing/image/#image_dataset_from_directory-function
+=======
+# Création des dataset
+# https://keras.io/api/preprocessing/image/#image_dataset_from_directory-function
+>>>>>>> de5ce8da753429a76a5beca196a34f3d659cb183
 train_dataset=keras.preprocessing.image_dataset_from_directory(
     repertoireCoco + "/train",      # Répertoire des images # !
     labels="inferred",   # Label déduit du nom du répertoire des images
