@@ -14,12 +14,18 @@ Rien à voir mais c'est beau ! 😀
 
 ## Base images
 
- - Le script "Pour_creer_notre_database.py" permet d'enregistrer les images qui contiennent les objets que le CNN doit identifier
- 
+ - Le script "Pour_creer_notre_databasePI.py" permet d'enregistrer les images val2017
+ - Le script "Pour_creer_notre_database.py" permet d'enregistrer les images val2017 + train2017
+
 ## Transfert apprentissage
 
+ - Le script "TL_MobileNetV2_linux.py" effectue le transfert d'apprentissage
+ - Le script "Convertir_en_TFlite.py" permet de créer un modèle à utiliser avec tflite 
+ 
 ## Utilisation du CNN
 
+ - Le script "run_on_Pi.py" permet d'utiliser le modèle tflite
+ 
 ## Liens utiles
 
 - Création de la base d'images pour l'entaînement
