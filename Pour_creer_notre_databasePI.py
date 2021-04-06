@@ -1,3 +1,4 @@
+# coding: utf-8
 from pycocotools.coco import COCO
 from PIL import Image
 import os
