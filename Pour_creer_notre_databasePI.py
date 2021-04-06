@@ -24,7 +24,7 @@ os.mkdir(repertoire_Non_Humain_Val)
 dataDir=os.getcwd() # Chemin du dossier ou s'execute le script
 categories_Humain = ['person']
 #categories_Non_Humain = ['car']
-categories_Non_Humain = ['car','bus','train','truck','bicycle','cat','dog','sheep','cow','horse','bird']
+categories_Non_Humain = []
 
 
 
@@ -46,7 +46,7 @@ def exctraction(cate_selectionne,doss_depart,doss_destination):
     if cate_selectionne != ['person']:
         p=0
         for im in images:
-            annIds = coco.getAnnIds(imgIds=im['id'], iscrowd=None)
+            annIds = coco.getAnnIds(iscrowd=None)
             anns = coco.loadAnns(ids=annIds)
             
             humain_is_present = 0
@@ -57,11 +57,9 @@ def exctraction(cate_selectionne,doss_depart,doss_destination):
             if im not in unique_images and humain_is_present == 0 :
                 unique_images.append(im)
                 cheminImageSource = os.path.join(doss_depart, im['file_name'])
-                #shutil.copy(cheminImageSource,doss_destination) # Enregistre la photo en entier
                 img = Image.open(cheminImageSource)
                 img.save(doss_destination + im['file_name']) # Enregistre uniquement l'objet d'intéret de la photo
-                #print(doss_destination + im['file_name'])
-    
+                    
 
     elif cate_selectionne == ['person']:
         for im in images:
@@ -71,10 +69,9 @@ def exctraction(cate_selectionne,doss_depart,doss_destination):
             if im not in unique_images  : # Si pas de personnes sur l'image
                 unique_images.append(im)
                 cheminImageSource = os.path.join(doss_depart, im['file_name'])
-                #shutil.copy(cheminImageSource,doss_destination) # Enregistre la photo en entier
                 img = Image.open(cheminImageSource)
                 img.save(doss_destination + im['file_name']) # Enregistre uniquement l'objet d'intéret de la photo
-                #print(doss_destination + im['file_name'])
+                
     
     
     
