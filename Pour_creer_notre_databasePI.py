@@ -34,51 +34,51 @@ def exctraction(cate_selectionne,doss_depart,doss_destination):
     images = []
     for className in cate_selectionne:   # Il est peut être possible de se passer de la boucle
         catIds = coco.getCatIds(catNms=className) # Récupération des identifiants des catégories à sélectionner
-        imgIds = coco.getImgIds(catIds=catIds)    # Récupération des images avec les catégories d'objets précisées
-        images += coco.loadImgs(imgIds)           # Récupération des images avec les catégories d'objets précisées
-        nb_images=len(imgIds) # Nombre d'images avec les catégories d'objets précisées
-        
-        print(nb_images, "images sélectionnées avec le critère ", className, " \n")
-
-    print(len(images),"images ont été sélectionnées avec tous les critères")
-    print("Vérification des images")
-    unique_images = []
+        for classId in catIds:
+            imgIds = coco.getImgIds(catIds=classId)    # Récupération des images avec les catégories d'objets précisées
+            images += coco.loadImgs(imgIds)           # Récupération des images avec les catégories d'objets précisées
+            nb_images=len(imgIds) # Nombre d'images avec les catégories d'objets précisées
+            print(nb_images, "images sélectionnées avec le critère ", classId, " \n")
     
-    if cate_selectionne != ['person']:
-        p=0
-        for im in images:
-            annIds = coco.getAnnIds(iscrowd=None)
-            anns = coco.loadAnns(ids=annIds)
-            
-            humain_is_present = 0
-            for ann in anns:
-                if ann['category_id'] == 1:
-                    humain_is_present=1
-            
-            if im not in unique_images and humain_is_present == 0 :
-                unique_images.append(im)
-                cheminImageSource = os.path.join(doss_depart, im['file_name'])
-                img = Image.open(cheminImageSource)
-                img.save(doss_destination + im['file_name']) # Enregistre uniquement l'objet d'intéret de la photo
-                    
-
-    elif cate_selectionne == ['person']:
-        for im in images:
-            annIds = coco.getAnnIds(imgIds=im['id'], iscrowd=None)
-            anns = coco.loadAnns(ids=annIds)
-            
-            if im not in unique_images  : # Si pas de personnes sur l'image
-                unique_images.append(im)
-                cheminImageSource = os.path.join(doss_depart, im['file_name'])
-                img = Image.open(cheminImageSource)
-                img.save(doss_destination + im['file_name']) # Enregistre uniquement l'objet d'intéret de la photo
+        print(len(images),"images ont été sélectionnées avec tous les critères")
+        print("Vérification des images")
+        unique_images = []
+        
+        if cate_selectionne != ['person']:
+            p=0
+            for im in images:
+                annIds = coco.getAnnIds(imgIds=im['id'],iscrowd=None)
+                anns = coco.loadAnns(ids=annIds)
                 
+                humain_is_present = 0
+                for ann in anns:
+                    if ann['category_id'] == 1:
+                        humain_is_present=1
+                
+                if im not in unique_images and humain_is_present == 0 :
+                    unique_images.append(im)
+                    cheminImageSource = os.path.join(doss_depart, im['file_name'])
+                    img = Image.open(cheminImageSource)
+                    img.save(doss_destination + im['file_name']) # Enregistre uniquement l'objet d'intéret de la photo
+                        
     
-    
-    
-    print(len(unique_images), "images intéressantes enregistrées sans doublon")
+        elif cate_selectionne == ['person']:
+            for im in images:
+                annIds = coco.getAnnIds(imgIds=im['id'], iscrowd=None)
+                anns = coco.loadAnns(ids=annIds)
+                
+                if im not in unique_images  : # Si pas de personnes sur l'image
+                    unique_images.append(im)
+                    cheminImageSource = os.path.join(doss_depart, im['file_name'])
+                    img = Image.open(cheminImageSource)
+                    img.save(doss_destination + im['file_name']) # Enregistre uniquement l'objet d'intéret de la photo
+                    
         
-    # Remplir les répertoires avec les images
+        
+        
+        print(len(unique_images), "images intéressantes enregistrées sans doublon")
+            
+        # Remplir les répertoires avec les images
 for i in range(4):
     if i==0:
         dataType = 'train2017'  # Dossier contenant les images
