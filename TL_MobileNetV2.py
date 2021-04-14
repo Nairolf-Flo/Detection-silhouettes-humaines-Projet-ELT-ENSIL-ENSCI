@@ -68,14 +68,9 @@ base_model.trainable = False
 # Ajout du classifieur à la fin du model
 x = base_model(inputs, training=False)
 #x = keras.layers.GlobalAveragePooling2D()(base_model.output) # calculates the average output of each feature map in the previous layer
-<<<<<<< HEAD
+
 x = keras.layers.Dense(1280, activation='relu')(x)
 x = keras.layers.Dropout(.25)(x)
-=======
-#x = keras.layers.Dense(256, activation='relu')(x)
-#x = keras.layers.Dropout(.25)(x)
-#outputs = keras.layers.Dense(1)(x)
->>>>>>> de5ce8da753429a76a5beca196a34f3d659cb183
 outputs = keras.layers.Dense(2,activation='softmax')(x)
 
 model = keras.Model(inputs=inputs, outputs=outputs)
@@ -106,7 +101,7 @@ save_path=repertoire+'\saved_models\\'+ model_name
 model.save(save_path)              #à décommenter pour sauvegarder le modèle (attention au nom)
 
 # Rappeler le modèle :
-model_name='mobilenetv2_personalCocoPI0'
+model_name='Model_du_Jeudi_8_Avril_30epochs'
 save_path=repertoire+'\saved_models\\'+ model_name
 model = keras.models.load_model(save_path)
 
