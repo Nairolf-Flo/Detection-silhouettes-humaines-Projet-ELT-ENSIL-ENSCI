@@ -1,0 +1,123 @@
+2021-04-18 20:39:58.963844: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory
+2021-04-18 20:39:58.963884: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2021-04-18 20:40:01.325179: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2021-04-18 20:40:01.325215: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2021-04-18 20:40:01.325232: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (ProjAvril2): /proc/driver/nvidia/version does not exist
+2021-04-18 20:40:01.325492: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-04-18 20:40:01.331993: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 2693665000 Hz
+2021-04-18 20:40:01.332790: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5154710 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2021-04-18 20:40:01.332809: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2021-04-18 20:40:05.288625: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 154140672 exceeds 10% of free system memory.
+2021-04-18 20:40:05.323649: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 156905472 exceeds 10% of free system memory.
+2021-04-18 20:40:05.844835: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 154140672 exceeds 10% of free system memory.
+2021-04-18 20:40:05.881698: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 156905472 exceeds 10% of free system memory.
+2021-04-18 20:40:06.398744: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 154140672 exceeds 10% of free system memory.
+Found 117266 files belonging to 2 classes.
+Epoch 1/50
+3665/3665 - 2134s - loss: 0.6443 - accuracy: 0.6616
+Epoch 2/50
+3665/3665 - 2189s - loss: 0.5907 - accuracy: 0.6842
+Epoch 3/50
+3665/3665 - 2293s - loss: 0.5805 - accuracy: 0.6925
+Epoch 4/50
+3665/3665 - 2225s - loss: 0.5716 - accuracy: 0.6994
+Epoch 5/50
+3665/3665 - 2208s - loss: 0.5663 - accuracy: 0.7000
+Epoch 6/50
+3665/3665 - 2201s - loss: 0.5628 - accuracy: 0.7050
+Epoch 7/50
+3665/3665 - 2207s - loss: 0.5585 - accuracy: 0.7089
+Epoch 8/50
+3665/3665 - 2169s - loss: 0.5556 - accuracy: 0.7102
+Epoch 9/50
+3665/3665 - 2156s - loss: 0.5536 - accuracy: 0.7108
+Epoch 10/50
+3665/3665 - 2128s - loss: 0.5518 - accuracy: 0.7106
+Epoch 11/50
+3665/3665 - 2120s - loss: 0.5494 - accuracy: 0.7137
+Epoch 12/50
+3665/3665 - 2107s - loss: 0.5478 - accuracy: 0.7144
+Epoch 13/50
+3665/3665 - 2079s - loss: 0.5454 - accuracy: 0.7156
+Epoch 14/50
+3665/3665 - 2090s - loss: 0.5434 - accuracy: 0.7161
+Epoch 15/50
+3665/3665 - 2050s - loss: 0.5431 - accuracy: 0.7148
+Epoch 16/50
+3665/3665 - 2041s - loss: 0.5428 - accuracy: 0.7173
+Epoch 17/50
+3665/3665 - 2055s - loss: 0.5415 - accuracy: 0.7175
+Epoch 18/50
+3665/3665 - 2053s - loss: 0.5395 - accuracy: 0.7171
+Epoch 19/50
+3665/3665 - 2069s - loss: 0.5381 - accuracy: 0.7174
+Epoch 20/50
+3665/3665 - 2072s - loss: 0.5374 - accuracy: 0.7186
+Epoch 21/50
+3665/3665 - 2066s - loss: 0.5365 - accuracy: 0.7187
+Epoch 22/50
+3665/3665 - 2050s - loss: 0.5360 - accuracy: 0.7210
+Epoch 23/50
+3665/3665 - 2181s - loss: 0.5341 - accuracy: 0.7202
+Epoch 24/50
+3665/3665 - 2062s - loss: 0.5325 - accuracy: 0.7190
+Epoch 25/50
+3665/3665 - 2039s - loss: 0.5324 - accuracy: 0.7222
+Epoch 26/50
+3665/3665 - 2030s - loss: 0.5314 - accuracy: 0.7228
+Epoch 27/50
+3665/3665 - 2043s - loss: 0.5308 - accuracy: 0.7235
+Epoch 28/50
+3665/3665 - 2045s - loss: 0.5280 - accuracy: 0.7233
+Epoch 29/50
+3665/3665 - 2050s - loss: 0.5288 - accuracy: 0.7226
+Epoch 30/50
+3665/3665 - 2042s - loss: 0.5288 - accuracy: 0.7237
+Epoch 31/50
+3665/3665 - 2033s - loss: 0.5274 - accuracy: 0.7235
+Epoch 32/50
+3665/3665 - 2041s - loss: 0.5271 - accuracy: 0.7230
+Epoch 33/50
+3665/3665 - 2044s - loss: 0.5259 - accuracy: 0.7245
+Epoch 34/50
+3665/3665 - 2038s - loss: 0.5251 - accuracy: 0.7250
+Epoch 35/50
+3665/3665 - 2039s - loss: 0.5252 - accuracy: 0.7240
+Epoch 36/50
+3665/3665 - 2041s - loss: 0.5242 - accuracy: 0.7244
+Epoch 37/50
+3665/3665 - 2044s - loss: 0.5231 - accuracy: 0.7257
+Epoch 38/50
+3665/3665 - 2070s - loss: 0.5240 - accuracy: 0.7236
+Epoch 39/50
+3665/3665 - 2051s - loss: 0.5222 - accuracy: 0.7251
+Epoch 40/50
+3665/3665 - 2089s - loss: 0.5220 - accuracy: 0.7251
+Epoch 41/50
+3665/3665 - 2032s - loss: 0.5217 - accuracy: 0.7259
+Epoch 42/50
+3665/3665 - 2033s - loss: 0.5218 - accuracy: 0.7248
+Epoch 43/50
+3665/3665 - 2026s - loss: 0.5206 - accuracy: 0.7259
+Epoch 44/50
+3665/3665 - 2049s - loss: 0.5210 - accuracy: 0.7241
+Epoch 45/50
+3665/3665 - 2116s - loss: 0.5190 - accuracy: 0.7257
+Epoch 46/50
+3665/3665 - 2089s - loss: 0.5189 - accuracy: 0.7256
+Epoch 47/50
+3665/3665 - 2089s - loss: 0.5192 - accuracy: 0.7254
+Epoch 48/50
+3665/3665 - 2072s - loss: 0.5184 - accuracy: 0.7265
+Epoch 49/50
+3665/3665 - 2059s - loss: 0.5182 - accuracy: 0.7247
+Epoch 50/50
+3665/3665 - 2066s - loss: 0.5178 - accuracy: 0.7245
+WARNING:tensorflow:From /home/FloetSam/.local/lib/python3.8/site-packages/tensorflow/python/training/tracking/tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+2021-04-20 01:40:41.455282: W tensorflow/python/util/util.cc:348] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+WARNING:tensorflow:From /home/FloetSam/.local/lib/python3.8/site-packages/tensorflow/python/training/tracking/tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
