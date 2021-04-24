@@ -26,6 +26,10 @@ Rien à voir mais c'est beau ! 😀
 
  - Le script "run_on_Pi.py" permet d'utiliser le modèle tflite
  
+ ## Test de la détection en temps réel sur le Raspberry PI
+
+ - Le script "PI_temps_reel.py" utilise un modèle tflite pour classer des images provenant de la caméra du Raspberry PI. Les résultats de la classification s'affichent dans la console et sur l'écran. 	
+ 
 ## Liens utiles
 
 - Création de la base d'images pour l'entaînement
