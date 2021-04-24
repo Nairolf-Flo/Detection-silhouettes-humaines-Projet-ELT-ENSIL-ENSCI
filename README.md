@@ -11,6 +11,8 @@ Rien à voir mais c'est beau ! 😀
 * [Transfert d'apprentissage](#transfert-apprentissage)
 * [Utilisation du CNN](#utilisation-du-cnn)
 * [Liens utiles](#liens-utiles)
+* [Test de la détection en temps réel](#Test de la détection en temps réel sur le Raspberry PI)
+
 
 ## Base images
 
